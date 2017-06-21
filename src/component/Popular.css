@@ -1,0 +1,8 @@
+li {
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.selected {
+    color: #d0021b;
+}
