@@ -1,12 +1,13 @@
-import React, {Component} from "react";
-import "./Popular.css"
+import React from "react";
+import "./Popular.css";
+import PropTypes from  "prop-types";
 
-export default class Popular extends Component {
-	render() {
-		const {lang, selected, onClick} = this.props;
+const Popular = ({lang, selected, onClick}) => (<li className={selected ? "selected" : ""} key={lang} onClick={onClick}>{lang}</li>);
 
-		return (
-			<li className={selected ? "selected" : ""} key={lang} onClick={onClick}>{lang}</li>
-		);
-	}
-}
+Popular.propTypes = {
+	lang: PropTypes.string.isRequired,
+	selected: PropTypes.bool.isRequired,
+	onClick: PropTypes.func,
+};
+
+export default Popular;
