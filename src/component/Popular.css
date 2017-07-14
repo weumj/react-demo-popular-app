@@ -1,8 +1,14 @@
-li {
+.popular {
     margin: 10px;
     font-weight: bold;
     cursor: pointer;
 }
 .selected {
+    color: #d0021b;
+}
+
+.space-list-items li a {
+    cursor: pointer;
+    text-decoration: none;
     color: #d0021b;
 }
