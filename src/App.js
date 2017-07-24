@@ -19,7 +19,7 @@ class App extends Component {
 		const {languages} = this.state;
 
 		return (
-			<Router>
+			<Router history="">
 				<div className="container">
 					<Nav/>
 					<Switch>

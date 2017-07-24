@@ -1,11 +1,15 @@
 import React, {Component} from "react";
 import "./PopularList.css";
 import Popular from "./Popular";
-import PropTypes from  "prop-types";
+import PropTypes from "prop-types";
 import {fetchPopularRepos} from "../utils/api";
 import RepoGrid from "./RepoGrid";
 
 export default class PopularList extends Component {
+	static propTypes = {
+		languages: PropTypes.arrayOf(PropTypes.string.isRequired)
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -60,6 +64,3 @@ export default class PopularList extends Component {
 	}
 }
 
-PopularList.propTypes = {
-	languages: PropTypes.arrayOf(PropTypes.string.isRequired)
-};
