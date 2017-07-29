@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from  "prop-types";
-import "./RepoGrid.css";
 
 const Repo = ({repo, index}) => (
 	<li className="popular-item" >

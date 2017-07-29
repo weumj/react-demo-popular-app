@@ -1,23 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-
-const PlayerPreview = ({id, avatar, username, onReset}) => (
-	<div>
-		<div className="column">
-			<img className="avatar" src={avatar} alt={`Avatar for ${avatar}`}/>
-			<h2 className="username">@{username}</h2>
-		</div>
-		<button className="reset" onClick={onReset.bind(null, id)}>Reset</button>
-	</div>
-);
-
-PlayerPreview.propTypes = {
-	id: PropTypes.string.isRequired,
-	avatar: PropTypes.string.isRequired,
-	username: PropTypes.string.isRequired,
-	onReset: PropTypes.func.isRequired,
-};
+import PlayerPreview from "./component/PlayerPreview";
 
 
 class PlayerInput extends Component {
@@ -99,7 +83,7 @@ export default class Battle extends Component {
 		}));
 
 	render() {
-		const {match} = this.props.match;
+		const {match} = this.props;
 		const {playerOneName, playerTwoName, playerOneImage, playerTwoImage} = this.state;
 
 		return (
@@ -108,23 +92,32 @@ export default class Battle extends Component {
 					{!playerOneName && <PlayerInput id="playerOne" label="Player One" onSubmit={this.handleSubmmit}/>}
 					{
 						playerOneImage !== null &&
-						<PlayerPreview id="playerOne" avatar={playerOneImage} username={playerOneName}
-									   onReset={this.handleReset}/>
+						<PlayerPreview
+							avatar={playerOneImage}
+							username={playerOneName}
+						>
+							<button className="reset" onClick={this.handleReset.bind(null, "playerOne")}>Reset</button>
+						</PlayerPreview>
 					}
 					{!playerTwoName && <PlayerInput id="playerTwo" label="Player Two" onSubmit={this.handleSubmmit}/>}
 					{
 						playerTwoImage &&
-						<PlayerPreview id="playerTwo" avatar={playerTwoImage} username={playerTwoName}
-									   onReset={this.handleReset}/>
+						<PlayerPreview
+							avatar={playerTwoImage}
+							username={playerTwoName}
+						>
+							<button className="reset" onClick={this.handleReset.bind(null, "playerTwo")}>Reset</button>
+						</PlayerPreview>
 					}
 					{
 						playerOneImage && playerTwoImage &&
-						<Link className="button" to={
-							{
+						<Link
+							className="button"
+							to={{
 								pathname: `${match.url}/results`,
 								search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`,
-							}
-						}>Battle</Link>
+							}}
+						>Battle</Link>
 					}
 				</div>
 			</div>

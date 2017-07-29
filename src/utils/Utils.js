@@ -1,0 +1,1 @@
+export const pipe = (...fns) => initInput => fns.reduce((input, fn) => fn(input), initInput);

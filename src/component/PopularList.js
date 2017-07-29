@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./PopularList.css";
 import Popular from "./Popular";
 import PropTypes from "prop-types";
 import {fetchPopularRepos} from "../utils/api";
@@ -31,7 +30,7 @@ export default class PopularList extends Component {
 		}));
 
 		(async () => {
-			const repos = await fetchPopularRepos({lang});
+			const repos = await fetchPopularRepos({language: lang});
 
 			this.setState(prevState => ({
 				...prevState,
