@@ -5,6 +5,7 @@ import {parse} from "query-string";
 import {pipe} from "./utils/Utils";
 import {fetchBattles} from "./utils/api";
 import PlayerPreview from "./component/PlayerPreview";
+import Loading from "./component/Loading";
 
 const playersAPI = pipe(
 	({location: {search}}) => search,
@@ -81,7 +82,7 @@ export default class Results extends Component {
 		const {winner, loser, error, loading} = this.state;
 
 		if (loading) {
-			return (<p>Loading</p>);
+			return (<Loading />);
 		}
 
 		if (error) {

@@ -3,6 +3,7 @@ import Popular from "./Popular";
 import PropTypes from "prop-types";
 import {fetchPopularRepos} from "../utils/api";
 import RepoGrid from "./RepoGrid";
+import Loading from "./Loading";
 
 export default class PopularList extends Component {
 	static propTypes = {
@@ -56,7 +57,7 @@ export default class PopularList extends Component {
 				</ul>
 				{repos ?
 					<RepoGrid repos={repos}/>
-					: <p>LOADING</p>
+					: <Loading text="DOWNLOADING"/>
 				}
 			</div>
 		);
