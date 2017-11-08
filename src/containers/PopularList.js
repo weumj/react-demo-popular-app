@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import Popular from "./Popular";
+import Popular from "../component/Popular";
 import PropTypes from "prop-types";
 import {fetchPopularRepos} from "../utils/api";
-import RepoGrid from "./RepoGrid";
-import Loading from "./Loading";
+import RepoGrid from "../component/RepoGrid";
+import Loading from "../component/Loading";
 
 export default class PopularList extends Component {
 	static propTypes = {

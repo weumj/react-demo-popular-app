@@ -1,0 +1,3 @@
+export const LOAD_PLAYER = "LOAD_PLAYER";
+export const PLAYER_LOADED = "PLAYER_LOADED";
+export const PLAYER_LOAD_ERROR = "PLAYER_LOAD_ERROR";

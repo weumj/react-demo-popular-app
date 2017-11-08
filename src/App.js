@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import Nav from "./Nav";
-import Home from "./Home";
-import Battle from "./Battle";
-import PopularList from "./component/PopularList";
-import Results from "./Results";
+import Nav from "./containers/Nav";
+import Home from "./containers/Home";
+import Battle from "./containers/battle/Battle";
+import PopularList from "./containers/PopularList";
+import Results from "./containers/results/Results";
 
 class App extends Component {
 	constructor(props) {
@@ -19,6 +19,7 @@ class App extends Component {
 		const {languages} = this.state;
 
 		return (
+
 			<Router history="">
 				<div className="container">
 					<Nav/>
@@ -31,6 +32,7 @@ class App extends Component {
 					</Switch>
 				</div>
 			</Router>
+
 		);
 	}
 }
