@@ -22,11 +22,11 @@ const loadPlayers = loadPlayerByNames => pipe(
 class Results extends Component {
 
 	componentDidMount() {
-		loadPlayers(this.props.loadPlayer);
+		loadPlayers(this.props.loadPlayer)(this.props);
 	}
 
 	render() {
-		const {players: [winner, loser], error, loading} = this.state;
+		const {players: [winner, loser], error, loading} = this.props;
 
 		if (loading) {
 			return (<Loading/>);

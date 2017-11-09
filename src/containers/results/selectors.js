@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const selectGlobal = () => state => state.player;
+const selectGlobal = () => state => state;
 
 export const selectLoading = () => createSelector(
 	selectGlobal(),
@@ -16,3 +16,4 @@ export const selectPlayers = () => createSelector(
 	selectGlobal(),
 	globalState => globalState.players,
 );
+

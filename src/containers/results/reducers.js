@@ -14,15 +14,15 @@ type Action = {
 };
 
 const initState: State = {
-	loading: false,
+	loading: true,
 	error: false,
 	players: []
 };
 
-const reducer = (state: State = initState, action: Action): State => {
+const reducer = ({playerState: state = initState}, action: Action): State => {
 	switch (action.type) {
-		case LOAD_PLAYER:
-			return {...state, loading: true, error: null, players: []};
+		// case LOAD_PLAYER:
+		// 	return {...state, loading: true, error: null, players: []};
 		case PLAYER_LOAD_ERROR:
 			return {...state, loading: false, error: "Looks like there was a error, Check that both user exist on Github."};
 		case PLAYER_LOADED:

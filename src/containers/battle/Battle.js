@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import PlayerPreview from "../../component/player/PlayerPreview";
 
 
-
 export default class Battle extends Component {
 	constructor(props) {
 		super(props);
@@ -61,13 +60,15 @@ export default class Battle extends Component {
 					}
 					{
 						playerOneImage && playerTwoImage &&
-						<Link
-							className="button"
-							to={{
-								pathname: `${match.url}/results`,
-								search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`,
-							}}
-						>Battle</Link>
+						<div>
+							<Link
+								className="button"
+								to={{
+									pathname: `${match.url}/results`,
+									search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`,
+								}}
+							>Battle</Link>
+						</div>
 					}
 				</div>
 			</div>

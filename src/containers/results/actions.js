@@ -5,8 +5,9 @@ export const loadPlayer = ({playerOneName, playerTwoName}) => ({
 	payload: {playerOneName, playerTwoName},
 });
 
-export const playerLoaded = () => ({
+export const playerLoaded = players => ({
 	type: PLAYER_LOADED,
+	payload: {players},
 });
 
 export const playerLoadError = () => ({

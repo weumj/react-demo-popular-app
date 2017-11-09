@@ -6,21 +6,24 @@ import {playerLoaded, playerLoadError} from "./actions";
 import {selectPlayers} from "./selectors";
 import {fetchBattles} from "../../utils/api";
 
-export function* getPlayers() {
-	const playerNames = yield select(selectPlayers());
+// should not
+export function* getPlayers({playerOneName, playerTwoName}) {
+	// const playerNames = yield select(/*selectPlayers()*/);
 
-	const players = yield call(fetchBattles, playerNames);
+	// const players = yield call(fetchBattles, playerNames);
+	const players = yield call(fetchBattles, [playerOneName, playerTwoName]);
 
 	if (!players) {
 		yield put(playerLoadError());
 	} else {
-		yield put(playerLoaded());
+		yield put(playerLoaded(players));
 	}
 }
 
 export function* getPlayersWatcher() {
-	while (yield take(LOAD_PLAYER)) {
-		yield call(getPlayers);
+	while (true) {
+		const {payload} = yield take(LOAD_PLAYER);
+		yield call(getPlayers, payload);
 	}
 }
 
